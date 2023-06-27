@@ -1,5 +1,5 @@
 By Bongani Ndlovu, (bn222if)
-## Table of Contents
+# Table of Contents
 [TOC]
 ## Description:
 
@@ -57,124 +57,140 @@ By receiving real-time sensor data, the user can take prompt action when necessa
 
 
 ## Preparation
-1. Download and Install Thonny IDE:
-    * Visit the Thonny IDE website at https://thonny.org/ and download the appropriate version for your operating system.
-    * Follow the installation instructions provided on the website to install Thonny IDE on your computer.
-2. Raspberry Pi Pico W Firmware Installation:
-    * Download the firmaware for Raspberry Pi Pico W from [fimaware](https://projects.raspberrypi.org/en/projects/get-started-pico-w/1)
-    * Locate the downloaded .uf2 firmware file, which is typically stored in the "Downloads" folder. The current version of the firmware at the time of writing this tutorial is *rp2-pico-w-20230426-v1.20.0.uf2*.
-    * Connect the Micro USB end of the cable to your Raspberry Pi Pico W prior to connecting it to your computer.
-    * Press and hold the BOOTSEL button on your Raspberry Pi Pico W.
-    * While holding the BOOTSEL button, connect the USB-A or USB-C end of the cable to your computer.
-    * Your file manager should open, and you will see the Raspberry Pi Pico displayed as an externally connected drive.
-    * Drag and drop the downloaded .uf2 firmware file into the file manager window.
-    * The Raspberry Pi Pico will disconnect, and the file manager window will close.
-3. Using Thonny editor:
-    * Launch the Thonny editor, which you installed in the previous step.
-    * In the bottom right-hand corner of the Thonny editor, you will see some text indicating the currently selected Python version.
-    * If it does not display "MicroPython (Raspberry Pi Pico)" and COM port, click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options. ![Image 1](https://hackmd.io/_uploads/r1n4LOuu2.png)
-4. Installing libraries using Thonny editor
-    * Launch the Thonny editor, which you installed in the previous step.
-    * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
+#### 1. Download and Install Thonny IDE:
+* Visit the Thonny IDE website at https://thonny.org/ and download the appropriate version for your operating system.
+* Follow the installation instructions provided on the website to install Thonny IDE on your computer.
+#### 2. Raspberry Pi Pico W Firmware Installation:
+* Download the firmaware for Raspberry Pi Pico W from [fimaware](https://projects.raspberrypi.org/en/projects/get-started-pico-w/1)
+* Locate the downloaded .uf2 firmware file, which is typically stored in the "Downloads" folder. The current version of the firmware at the time of writing this tutorial is *rp2-pico-w-20230426-v1.20.0.uf2*.
+* Connect the Micro USB end of the cable to your Raspberry Pi Pico W prior to connecting it to your computer.
+* Press and hold the BOOTSEL button on your Raspberry Pi Pico W.
+* While holding the BOOTSEL button, connect the USB-A or USB-C end of the cable to your computer.
+* Your file manager should open, and you will see the Raspberry Pi Pico displayed as an externally connected drive.
+* Drag and drop the downloaded .uf2 firmware file into the file manager window.
+* The Raspberry Pi Pico will disconnect, and the file manager window will close.
+#### 3. Using Thonny Editor:
+* Launch the Thonny editor, which you installed in the previous step.
+* In the bottom right-hand corner of the Thonny editor, you will see some text indicating the currently selected Python version.
+* If it does not display "MicroPython (Raspberry Pi Pico)" and COM port, click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options. ![Image 1](https://hackmd.io/_uploads/r1n4LOuu2.png)
+#### 4. Installing Libraries using Thonny Editor
+   * Launch the Thonny editor, which you installed in the previous step.
+   * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
     * Navigate to the Thonny Tools Menu (#*1.*) > Manage packages...(#*2.*)
      ![Image 2](https://hackmd.io/_uploads/HyR7KO_u3.png)
-    * In the popup menu, type the name of the library you want to install into the search field (#*3.*) and Click Search on PyPI (#*4.*).
+   * In the popup menu, type the name of the library you want to install into the search field (#*3.*) and Click Search on PyPI (#*4.*).
     
-    ![Image 3](https://hackmd.io/_uploads/rkv1nO_d3.png)
-    * Select the appropriate library from the search results.
-    * Click the Install button (#*5.*) at the bottom of the menu to begin the installation process.
-    * Wait for the installation to complete. You will see a progress bar indicating the installation progress.
-    * Once the installation is finished, you will be prompted to close the package manager. 
-    * Click the Close button (#*6.*) to exit the package manager.
+   ![Image 3](https://hackmd.io/_uploads/rkv1nO_d3.png)
+   * Select the appropriate library from the search results.
+   * Click the Install button (#*5.*) at the bottom of the menu to begin the installation process.
+   * Wait for the installation to complete. You will see a progress bar indicating the installation progress.
+   * Once the installation is finished, you will be prompted to close the package manager. 
+   * Click the Close button (#*6.*) to exit the package manager.
 
 These steps will prepare your system and Raspberry Pi Pico W for the subsequent stages of the tutorial.
 
 ## Hardware connection
-* Component Wiring Instructions for Raspberry Pi Pico W:
-    1. Water Level Sensor:
-        * Connect the VCC pin of the water level sensor to a 3.3V power source on the Raspberry Pi Pico W. 
-        * Connect the GND pin of the water level sensor to a ground (GND) pin on the Raspberry Pi Pico W.
-        * Connect the OUT pin of the water level sensor to ADC(2) pin (Pin 28) on the Raspberry Pi Pico W.
-    2. DHT11 Sensor:
-        * Connect the VCC pin of the DHT11 sensor to a 3.3V power source on the Raspberry Pi Pico W.
-        * Connect the GND pin of the DHT11 sensor to a ground (GND) pin on the Raspberry Pi Pico W.
-        * Connect the DATA pin of the DHT11 sensor to GP22 pin (Pin 22) on the Raspberry Pi Pico W.
-    3. RGB LED:
-        * Connect the minus pin of the RGB module to a ground (GND) pin on the Raspberry Pi Pico W.
-        * Connect the blue_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 2)
-        * Connect the red_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 3)
-        * Connect the green_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 4)
-        * Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
-    4. Buzzer:
-        * Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
-        * Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
-        * Connect the VCC pin of the Buzzer module to a 3.3V power source on the Raspberry Pi Pico W.
-    5. OLED Display (I2C Interface):
-        * Connect the VCC pin of the OLED display to a 3.3V power source on the Raspberry Pi Pico W.
-        * Connect the GND pin of the OLED display to a ground (GND) pin on the Raspberry Pi Pico W.
-        * Connect the SDA pin of the OLED display to the SDA pin (Pin 26) on the Raspberry Pi Pico W.
-        * Connect the SCL pin of the OLED display to the SCL pin (Pin 27) on the Raspberry Pi Pico W.
-By following these wiring instructions, you will establish the necessary electrical connections between the components and the Raspberry Pi Pico W, allowing them to communicate and interact effectively.
-
-* Raspberry Pi Pico W Pinout diagram
-![](https://hackmd.io/_uploads/B1nDicD_2.png)
-
-* Assemble the Components:
-    * Begin by gathering all the required components for the project.
-    * Follow the circuit diagram or specified wiring instructions.
-    * Connect the components to the Raspberry Pi Pico W according to the specified pin configurations.
-    * Ensure proper connections and secure them in place.
+1. #### Component Wiring Instructions for Raspberry Pi Pico W:
+    1.1. Water Level Sensor:
+    * Connect the VCC pin of the water level sensor to a 3.3V power source on the Raspberry Pi Pico W. 
+     * Connect the GND pin of the water level sensor to a ground (GND) pin on the Raspberry Pi Pico W.
+     * Connect the OUT pin of the water level sensor to ADC(2) pin (Pin 28) on the Raspberry Pi Pico W.
     
-By carefully assembling the components, you will create the necessary physical connections between the sensors, modules, and Raspberry Pi Pico W, enabling them to communicate and function together effectively.
+    1.2. DHT11 Sensor:
+    * Connect the VCC pin of the DHT11 sensor to a 3.3V power source on the Raspberry Pi Pico W.
+    * Connect the GND pin of the DHT11 sensor to a ground (GND) pin on the Raspberry Pi Pico W.
+    * Connect the DATA pin of the DHT11 sensor to GP22 pin (Pin 22) on the Raspberry Pi Pico W.
+    
+    1.3. RGB LED:
+    * Connect the minus pin of the RGB module to a ground (GND) pin on the Raspberry Pi Pico W.
+    * Connect the blue_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 2)
+    * Connect the red_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 3)
+    * Connect the green_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 4)
+    * Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
+
+    1.4. Buzzer:
+    * Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
+    * Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
+    * Connect the VCC pin of the Buzzer module to a 3.3V power source on the Raspberry Pi Pico W.
+
+    1.5. OLED Display (I2C Interface):
+    * Connect the VCC pin of the OLED display to a 3.3V power source on the Raspberry Pi Pico W.
+    * Connect the GND pin of the OLED display to a ground (GND) pin on the Raspberry Pi Pico W.
+    * Connect the SDA pin of the OLED display to the SDA pin (Pin 26) on the Raspberry Pi Pico W.
+    * Connect the SCL pin of the OLED display to the SCL pin (Pin 27) on the Raspberry Pi Pico W.
+
+    By following these wiring instructions, you will establish the necessary electrical connections between the components and the Raspberry Pi Pico W, allowing them to communicate and interact effectively.
+
+#### 2. Raspberry Pi Pico W Pinout diagram
+![](https://hackmd.io/_uploads/B1nDicD_2.png)
+#### 3. Assemble the Components:
+* Begin by gathering all the required components for the project.
+* Follow the circuit diagram or specified wiring instructions.
+* Connect the components to the Raspberry Pi Pico W according to the specified pin configurations.
+* Ensure proper connections and secure them in place.
+    
+    By carefully assembling the components, you will create the necessary physical connections between the sensors, modules, and Raspberry Pi Pico W, enabling them to communicate and function together effectively.
     
     Note that actual components may differ from the ones shown in the example, 
     but the general principles of connection remain the same.
 ![](https://hackmd.io/_uploads/SJACbqPun.png)
 
-## Code and prerequisit for running the code
+## Code and Prerequisites for Running the code
 
-Complete code including libraries can be downloaded from [myGitHubRepository](https://github.com/ebonndl/my_awsome_IoT_project)
-* Required libraries 
-
-    To successfully execute the project, you need to make sure the following libraries are imported into your project:
-    * These two libraries needs to be installed by follow the steps in section [4. Installing libraries using Thonny editor](#installing-libraries-using-thonny-editor);
-        1. umqtt.simple: This library provides a simple MQTT client implementation for MicroPython.
-        2. ssd1306: This library allows you to communicate with SSD1306-based OLED displays.
-
-    * In addition to the above libraries (i.e. *umqtt.simple* and *ssd1306*), the following libraries are part of the MicroPython standard library and should already be available on your Raspberry Pi Pico W. You can directly import them into your project:
-        1. utime: This library provides functions for working with time and delays.
-        2. ubinascii: This library provides functions for working with binary and ASCII data.
-        3. ujson: This library provides functions for working with JSON data.
-        4. machine: This library provides access to various hardware components and interfaces on the microcontroller.
-        5. dht: This library allows you to interact with DHT series temperature and humidity sensors.
-        6. network: This library provides network-related functions and classes, such as connecting to Wi-Fi networks.
-        7. boot: This is a custom module specific to your project, so make sure to have the boot.py file available.
-Ensure that all the libraries are installed before proceeding with the project.
-
-* Code snippet
-
-    config.py:
-
-    #Wireless network
+To run the code for this project, you will need the following prerequisites:
+#### 1. MicroPython Firmware:
+Ensure that you have flashed the MicroPython firmware onto your Raspberry Pi Pico W, as described in the ["Preparation"](#Preparation) section of this tutorial.
+#### 2. Required Libraries: 
+Install the necessary libraries to your Raspberry Pi Pico W by following the steps provided in the ["Installing Libraries using Thonny Editor"](####4.-Installing-Libraries-using-Thonny-Editor) section of this tutorial.
+  * These two libraries needs to be installed by follow the above mentioned section;
+    1. umqtt.simple: This library provides a simple MQTT client implementation for MicroPython.
+    2. ssd1306: This library allows you to communicate with SSD1306-based OLED displays.
+* In addition to the above libraries (i.e. *umqtt.simple* and *ssd1306*), the following libraries are part of the MicroPython standard library and should already be available on your Raspberry Pi Pico W. You can directly import them into your project:
+    1. utime: Provides functions for working with time and delays.
+    2. ubinascii: Provides functions for working with binary and ASCII data.
+    3. ujson: Provides functions for working with JSON data.
+    4. machine: Provides access to various hardware components and interfaces on the microcontroller.
+    5. dht: Allows interaction with DHT series temperature and humidity sensors.
+    6. network: Provides network-related functions and classes, such as connecting to Wi-Fi networks.
+    7. boot: This is a custom module specific to your project. Ensure you have the boot.py file available.
     
-    *WiFiSSID =  "<YourSSID>"*
+#### 3. Downloading the Code: 
+   * The complete code, including the required libraries, can be downloaded from my GitHub repository. You can access the code from the following link: [myGitHubRepository](https://github.com/ebonndl/my_awsome_IoT_project).
+   * Once you have downloaded the code, make sure to extract it to a convenient location on your computer.
+   
+#### 4. Uploading the Code: 
+   To upload the code to your Raspberry Pi Pico W, follow the steps below:
+   * Connect your Raspberry Pi Pico W to your computer using a Micro USB cable.
+    * Launch the Thonny editor, which you installed during the preparation process.
+    * Make sure "MicroPython (Raspberry Pi Pico)" is selected as the Python version and the correct COM port is selected in the bottom right-hand corner of the Thonny editor.
+    * Open the main code file (e.g., main.py) from the extracted code folder in Thonny.
+    * Click the "Run" button or press F5 to upload and run the code on your Raspberry Pi Pico W.
 
-    *WiFiPassword = "<YourPassword>"*
+By following these steps and ensuring that you have the necessary firmware, libraries, and code, you will be able to successfully run the project code on your Raspberry Pi Pico W.
 
-    #MQTT configuration
-    
-    *mqttserver = "<YourRaspberryPiIP>"*
+#### 5. Code snippet:
+   config.py:
 
-   [boot.py](boot.py):
+       #Wireless network
 
-    *import config*
+       WiFiSSID =  "<YourSSID>"
 
-    *import network*
+       WiFiPassword = "<YourPassword>"
 
-    *from time import sleep*
+       #MQTT configuration
+
+       mqttserver = "<YourRaspberryPiIP>"
+
+   boot.py:
+
+    import config
+
+    import network
+
+    from time import sleep
 
     '''
-    *def connect():*
+    def connect():
 
         wlan = network.WLAN(network.STA_IF)         # Put modem on Station mode
         if not wlan.isconnected():                  # Check if already connected
@@ -195,18 +211,18 @@ Ensure that all the libraries are installed before proceeding with the project.
         print('\nConnected on {}'.format(ip))
         return ip
 
-    *def disconnect():*
+    def disconnect():
 
         wlan = network.WLAN(network.STA_IF)         # Put modem on Station mode
         wlan.disconnect()
         wlan = None 
     '''
 
-    main loop for main.py:
+main loop for main.py:
     
     #Main loop
     
-   *def mainloop():*
+       def mainloop():
 
         try:
             connect_wifi()
@@ -258,7 +274,7 @@ Ensure that all the libraries are installed before proceeding with the project.
             blue_led.value(0)
             green_led.value(0)
             buzzer.value(0) 
-    '''
+    
 
 ## Data transmission/ connectivity
 

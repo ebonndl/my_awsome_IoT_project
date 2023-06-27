@@ -1,6 +1,6 @@
 **Description:** 
 
-In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using Raspberry Pi Pico W, an HDT11 sensor for temperature measurement, and a water level sensor. 
+In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using Raspberry Pi Pico W, an HDT11 sensor to measure temperature and humidity, and a water level sensor. 
 The system utilizes Docker to log and share sensor data on a Raspberry Pi, with the following components:
 * Mosquitto: Message broker for data communication.
 * InfluxDB: Database for storing sensor data.

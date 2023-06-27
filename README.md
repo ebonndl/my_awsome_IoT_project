@@ -1,6 +1,9 @@
-**Description:** 
+By Bongani Ndlovu, (bn222if)
+## Table of Contents
+[TOC]
+## Description:
 
-In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using Raspberry Pi Pico W, an HDT11 sensor to measure temperature and humidity, and a water level sensor. 
+In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using Raspberry Pi Pico W, a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
 The system utilizes Docker to log and share sensor data on a Raspberry Pi, with the following components:
 * Mosquitto: Message broker for data communication.
 * InfluxDB: Database for storing sensor data.
@@ -9,7 +12,7 @@ The system utilizes Docker to log and share sensor data on a Raspberry Pi, with 
 
 Additionally, the system incorporates an OLED display, RGB LED, and Buzzer for local visualization and alert notifications.
 
-Time Allocation:
+#### Time Allocation:
 
 The assembly and coding process for this tutorial can generally be completed within a reasonable timeframe of approximately 1-2 hours. However, it's important to consider personal preferences in terms of data visualization choices and the time needed to become familiar with the components and tools used in the project.
 
@@ -25,7 +28,7 @@ Here's a breakdown of the time allocation for each step:
 
 Please note that these time estimates are approximate and can vary depending on individual experience, learning speed, and familiarity with the tools and concepts involved. It's always recommended to allocate some extra time for troubleshooting and debugging, as unforeseen challenges may arise during the process.
 
-**Objective:**
+## Objective:
 
 The objective of this project is to enhance an existing egg incubator by adding a monitoring system that allows remote climate monitoring. Even when away from the incubator, this system enables the user to monitor the climate conditions inside.
 In an egg incubator, the hatching process requires specific conditions such as proper egg rotation, correct temperature, and humidity levels. The water level plays a role in influencing humidity. However, as the rotation is handled by the incubator's motor, this monitoring system focuses only on monitoring temperature, humidity, and water level.
@@ -38,7 +41,7 @@ To ensure successful hatching, the temperature and humidity need to be maintaine
 
 By receiving real-time sensor data, the user can take prompt action when necessary. The ability to monitor the climate conditions remotely relieves the burden and limitation of only being able to monitor the incubator when physically present.
 
-**Material:**
+## Material:
 
 *The selection of materials can be tailored according to the user's preferences, and it is recommended to refer to the equipment datasheets for comprehensive specifications and details of the individual components.
 
@@ -53,7 +56,7 @@ By receiving real-time sensor data, the user can take prompt action when necessa
 | ![](https://hackmd.io/_uploads/ryytXvw_n.jpg)  | 3 x mini breadboards and 23 X Jumper wires (13pcs male/male 0.64mm pins 100mm,  6pcs female/male and 4pcs 150mm male/male)     | Jumper wires and mini breadboards are versatile connectors used in electronics projects to establish connections between various components. They provide a flexible and convenient way to link different parts of a circuit, enabling easy prototyping and experimentation. With different lengths and colors available, jumper wires offer flexibility in organizing and routing connections within your project. They are an      |111.00 SEK            |
 
 
-**Preparation**
+## Preparation
 1. Download and Install Thonny IDE:
     * Visit the Thonny IDE website at https://thonny.org/ and download the appropriate version for your operating system.
     * Follow the installation instructions provided on the website to install Thonny IDE on your computer.
@@ -69,11 +72,24 @@ By receiving real-time sensor data, the user can take prompt action when necessa
 3. Using Thonny editor:
     * Launch the Thonny editor, which you installed in the previous step.
     * In the bottom right-hand corner of the Thonny editor, you will see some text indicating the currently selected Python version.
-    * If it does not display "MicroPython (Raspberry Pi Pico) . COM", click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options.
+    * If it does not display "MicroPython (Raspberry Pi Pico)" and COM port, click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options. ![Image 1](https://hackmd.io/_uploads/r1n4LOuu2.png)
+4. Installing libraries using Thonny editor
+    * Launch the Thonny editor, which you installed in the previous step.
+    * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
+    * Navigate to the Thonny Tools Menu (#*1.*) > Manage packages...(#*2.*)
+     ![Image 2](https://hackmd.io/_uploads/HyR7KO_u3.png)
+    * In the popup menu, type the name of the library you want to install into the search field (#*3.*) and Click Search on PyPI (#*4.*).
+    
+    ![Image 3](https://hackmd.io/_uploads/rkv1nO_d3.png)
+    * Select the appropriate library from the search results.
+    * Click the Install button (#*5.*) at the bottom of the menu to begin the installation process.
+    * Wait for the installation to complete. You will see a progress bar indicating the installation progress.
+    * Once the installation is finished, you will be prompted to close the package manager. 
+    * Click the Close button (#*6.*) to exit the package manager.
 
 These steps will prepare your system and Raspberry Pi Pico W for the subsequent stages of the tutorial.
 
-**Hardware connection**
+## Hardware connection
 * Component Wiring Instructions for Raspberry Pi Pico W:
     1. Water Level Sensor:
         * Connect the VCC pin of the water level sensor to a 3.3V power source on the Raspberry Pi Pico W. 
@@ -115,31 +131,41 @@ By carefully assembling the components, you will create the necessary physical c
     but the general principles of connection remain the same.
 ![](https://hackmd.io/_uploads/SJACbqPun.png)
 
-**Code and prerequisit for running the code**
+## Code and prerequisit for running the code
+
+Complete code including libraries can be downloaded from [myGitHubRepository](https://github.com/ebonndl/my_awsome_IoT_project)
 * Required libraries 
-    1. utime: This library provides functions for working with time and delays.
-    2. ubinascii: This library provides functions for working with binary and ASCII data.
-    3. ujson: This library provides functions for working with JSON data.
-    4. machine: This library provides access to various hardware components and interfaces on the microcontroller.
-    5. dht: This library allows you to interact with DHT series temperature and humidity sensors.
-    6. network: This library provides network-related functions and classes, such as connecting to Wi-Fi networks.
-    7. umqtt.simple: This library provides a simple MQTT client implementation for MicroPython.
-    8. ssd1306: This library allows you to communicate with SSD1306-based OLED displays.
-    9. boot: This is a custom module specific to your project, so make sure to have the boot.py file available.
+
+    To successfully execute the project, you need to make sure the following libraries are imported into your project:
+    * These two libraries needs to be installed by follow the steps in section [4. Installing libraries using Thonny editor](#installing-libraries-using-thonny-editor);
+        1. umqtt.simple: This library provides a simple MQTT client implementation for MicroPython.
+        2. ssd1306: This library allows you to communicate with SSD1306-based OLED displays.
+
+    * In addition to the above libraries (i.e. *umqtt.simple* and *ssd1306*), the following libraries are part of the MicroPython standard library and should already be available on your Raspberry Pi Pico W. You can directly import them into your project:
+        1. utime: This library provides functions for working with time and delays.
+        2. ubinascii: This library provides functions for working with binary and ASCII data.
+        3. ujson: This library provides functions for working with JSON data.
+        4. machine: This library provides access to various hardware components and interfaces on the microcontroller.
+        5. dht: This library allows you to interact with DHT series temperature and humidity sensors.
+        6. network: This library provides network-related functions and classes, such as connecting to Wi-Fi networks.
+        7. boot: This is a custom module specific to your project, so make sure to have the boot.py file available.
+Ensure that all the libraries are installed before proceeding with the project.
 
 * Code snippet
 
     config.py:
 
-    # Wireless network
+    #Wireless network
+    
     *WiFiSSID =  "<YourSSID>"*
 
     *WiFiPassword = "<YourPassword>"*
 
-    # MQTT configuration
+    #MQTT configuration
+    
     *mqttserver = "<YourRaspberryPiIP>"*
 
-    boot.py:
+   [boot.py](boot.py):
 
     *import config*
 
@@ -178,7 +204,8 @@ By carefully assembling the components, you will create the necessary physical c
 
     main loop for main.py:
     
-    # Main loop
+    #Main loop
+    
    *def mainloop():*
 
         try:
@@ -233,9 +260,8 @@ By carefully assembling the components, you will create the necessary physical c
             buzzer.value(0) 
     '''
 
-    **Data transmission/ connectivity**
+## Data transmission/ connectivity
 
-
-    **Data presentation**
-
-    **Final project results**
+## Data presentation
+    
+## Final project results

@@ -3,7 +3,7 @@ By Bongani Ndlovu, (bn222if)
 [TOC]
 ## Description
 
-In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using [Raspberry Pi Pico W](https://www.electrokit.com/produkt/raspberry-pi-pico-w/?gclid=EAIaIQobChMItKbR_tzl_wIVcuTmCh3C4A1tEAAYAiAAEgIIqPD_BwE), a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
+In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using [Raspberry Pi Pico W](https://hackmd.io/@bn222if/BJrYZALu2#2-Raspberry-Pi-Pico-W-Pinout-diagram), a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
 The system utilizes Docker to log and share sensor data on a Raspberry Pi, with the following components:
 * Mosquitto: Message broker for data communication.
 * InfluxDB: Database for storing sensor data.
@@ -315,7 +315,7 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 #### 5. Data Management
 * To simplify the management of data and containerized applications, this project utilizes Docker containers and the Portainer container management tool. 
 * Portainer enables easy management of Docker containers, including the InfluxDB container used for data storage. 
-* The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](####1._Frequency_of_Data_Transmission). - This can be adjusted according to the specific requirements of the project.
+* The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](https://hackmd.io/@bn222if/BJrYZALu2#1-Frequency-of-Data-Transmission). - This can be adjusted according to the specific requirements of the project.
 
 ## Data Presentation
 #### Grafana dashboard preview

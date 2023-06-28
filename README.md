@@ -18,13 +18,13 @@ The assembly and coding process for this tutorial can generally be completed wit
 
 Here's a breakdown of the time allocation for each step:
 
-1. Preparing Raspberry Pi Pico W and connecting the components:
-    * This step typically takes around 30 minutes to 1 hour, depending on your familiarity with the hardware and breadboard connections.
-2. Writing the code:
-    * The provided code is ready to use, but understanding it and making any necessary modifications or customizations may require around 1-2 hours for an average beginner.
-3. Setting up the Raspberry Pi to host the required services:
-    * This step involves installing and configuring Docker, Portainer, Mosquitto MQTT broker, Node-RED, InfluxDB and Grafana on the Raspberry Pi.
-    * On average, an additional 1-2 hours for an average beginner will be required to complete this setup. The actual time required may vary based on your familiarity with the tools and the complexity of the setup.
+##### 1. Preparing Raspberry Pi Pico W and connecting the components:
+* This step typically takes around 30 minutes to 1 hour, depending on your familiarity with the hardware and breadboard connections.
+##### 2. Writing the code:
+* The provided code is ready to use, but understanding it and making any necessary modifications or customizations may require around 1-2 hours for an average beginner.
+##### 3. Setting up the Raspberry Pi to host the required services:
+* This step involves installing and configuring Docker, Portainer, Mosquitto MQTT broker, Node-RED, InfluxDB and Grafana on the Raspberry Pi.
+* On average, an additional 1-2 hours for an average beginner will be required to complete this setup. The actual time required may vary based on your familiarity with the tools and the complexity of the setup.
 
 Please note that these time estimates are approximate and can vary depending on individual experience, learning speed, and familiarity with the tools and concepts involved. It's always recommended to allocate some extra time for troubleshooting and debugging, as unforeseen challenges may arise during the process.
 
@@ -51,7 +51,7 @@ The selection of materials can be tailored according to the user's preferences, 
 | ![](https://hackmd.io/_uploads/HyWafwP_h.jpg) | 1 x [DHT11 Sensor](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/) – Temperature and humidity sensor                                                                                                                                                                                                                         | The temperature range of DHT11 is from 0 to 50 degree Celsius with a 2-degree accuracy. Humidity range of this sensor is from 20 to 80% with 5% accuracy. The sampling rate of this sensor is 1Hz .i.e. it gives one reading for every second.  DHT11 is small in size with operating voltage from 3 to 5 volts. The maximum current used while measuring is 2.5mA.3                                                                                                                                                                                                                                                                                                                                                                         | 78.00 SEK         |
 | ![](https://hackmd.io/_uploads/rJ_kQvw_3.jpg) | 1 x [Water level sensor](https://www.fruugo.se/5-pieces-rain-water-sensor-liquid-level-sensor-rain-water-detection-for-detection-area-40mmx16mm/p-119987351-252224651?language=en&ac=ProductCasterAPI&asc=pmax&gclid=EAIaIQobChMIm9uHyN_l_wIV2fhRCh2aAwAUEAQYDCABEgJ_oPD_BwE)                                                                             | Analog signal conversion and output analog values can be directly read by a Micro Controller board to achieve the level alarm effect. It is obtained by having a series of parallel wires exposed tracks measured drops/water volume to determine the water level. Operating temperature: 10 °C - 30 °C, humidity: 10% - 90% non-condensing Operating voltage: DC 3-5V, operating current: less than 20mA, detection area: 40mm x 16mm                                                                                                                                                                                                                                                                                                       | 132.00 SEK (5pcs) |
 | ![](https://hackmd.io/_uploads/rysZmPw_3.jpg) | 1 x [OLED Display](https://www.amazon.se/AZDelivery-I2C-Skärm-kompatibel-Raspberry-inklusive/dp/B01L9GC470/ref=asc_df_B01L9GC470/?tag=shpngadsglede-21&linkCode=df0&hvadid=476458655005&hvpos=&hvnetw=g&hvrand=2169706603414924&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1012324&hvtargid=pla-402608082122&psc=1)                      | The 0.96" diagonal OLED display used in this tutorial is a compact and vibrant screen comprised of 128x64 individual blue pixels. It provides a clear and concise visual interface to display real-time information such as temperature, humidity, and water level readings. With its small form factor, it can be easily integrated into the monitoring system, offering local visualization of the data in a user-friendly manner.                                                                                                                                                                                                                                                                                                         | 77.00 SEK         |
-| ![](https://hackmd.io/_uploads/BymEmvvd2.jpg) | 1 x [RGB led](https://www.electrokit.com/produkt/led-modul-rgb-smd/[](https://))                                                                                                                                                                                                                                                                          | The KY-009 SMD Module LED RGB 3 Full Color is a versatile component used for colorful visual indicators in the tutorial. This module consists of three RGB (Red, Green, Blue) LEDs in a compact surface-mount device (SMD) package. In the tutorial, the KY-009 module is utilized to provide local visual feedback, indicating various states or conditions of the monitoring system                                                                                                                                                                                                                                                                                                                                                        | 116.00 SEK        |
+| ![](https://hackmd.io/_uploads/BymEmvvd2.jpg) | 1 x [RGB LED SMD](https://www.electrokit.com/produkt/led-modul-rgb-smd/)                                                                                                                                                                                                                                                                          | The KY-009 SMD Module LED RGB 3 Full Color is a versatile component used for colorful visual indicators in the tutorial. This module consists of three RGB (Red, Green, Blue) LEDs in a compact surface-mount device (SMD) package. In the tutorial, the KY-009 module is utilized to provide local visual feedback, indicating various states or conditions of the monitoring system                                                                                                                                                                                                                                                                                                                                                        | 116.00 SEK        |
 | ![](https://hackmd.io/_uploads/rkFLQwPuh.jpg) | 1 x [Buzzer](https://www.electrokit.com/produkt/piezohogtalare-passiv/)                                                                                                                                                                                                                                                                                   | The passive piezo buzzer module is a small audio device that adds an audible alert functionality to the tutorial project. It consists of a piezoelectric element that generates sound when an electrical signal is applied to it. In the tutorial, the module is used to produce sound alerts or notifications based on specific events or conditions. It can be programmed to emit different tones or patterns to indicate different states or warnings within the monitoring system. The piezo buzzer module enhances the user experience by providing an additional sensory feedback element, allowing users to receive auditory cues and respond to the system's status or alerts even without actively monitoring the visual interface. | 68.00 SEK         |
 | ![](https://hackmd.io/_uploads/ryytXvw_n.jpg) | 3 x [mini breadboards](https://www.amazon.se/AZDelivery-Breadboard-Kit-Bygelkabel-kompatibel/dp/B07NJ3FX25/ref=sr_1_4?crid=34VBKF5QMOFDY&keywords=3%2Bx%2Bmini%2Bbreadbord&qid=1687948256&sprefix=3%2Bx%2Bmini%2Bbreadbord%2Caps%2C220&sr=8-4&th=1) and 23 X Jumper wires (13pcs male/male 0.64mm pins 100mm,  6pcs female/male and 4pcs 150mm male/male) | Jumper wires and mini breadboards are versatile connectors used in electronics projects to establish connections between various components. They provide a flexible and convenient way to link different parts of a circuit, enabling easy prototyping and experimentation. With different lengths and colors available, jumper wires offer flexibility in organizing and routing connections within your project. They are an                                                                                                                                                                                                                                                                                                              | 111.00 SEK        |
 |                                               |                                                                                                                                                                                                                                                                                                                                                           | Total:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 714.00 SEK                   |
@@ -73,6 +73,7 @@ The selection of materials can be tailored according to the user's preferences, 
 * Launch the Thonny editor, which you installed in the previous step.
 * In the bottom right-hand corner of the Thonny editor, you will see some text indicating the currently selected Python version.
 * If it does not display "MicroPython (Raspberry Pi Pico)" and COM port, click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options. ![Image 1](https://hackmd.io/_uploads/r1n4LOuu2.png)
+
 #### 4. Installing Libraries using Thonny Editor:
    * Launch the Thonny editor, which you installed in the previous step.
    * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
@@ -106,12 +107,13 @@ These steps will prepare your system and Raspberry Pi Pico W for the subsequent 
 * Connect the blue_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 2)
 * Connect the red_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 3)
 * Connect the green_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 4)
-* Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
+
+Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
 
 1.4. Buzzer:
-* Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
-* Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
 * Connect the VCC pin of the Buzzer module to a 3.3V power source on the Raspberry Pi Pico W.
+* Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
 
 1.5. OLED Display (I2C Interface):
 * Connect the VCC pin of the OLED display to a 3.3V power source on the Raspberry Pi Pico W.
@@ -123,6 +125,7 @@ By following these wiring instructions, you will establish the necessary electri
 
 #### 2. Raspberry Pi Pico W Pinout diagram
 ![](https://hackmd.io/_uploads/B1nDicD_2.png)
+
 #### 3. Assemble the Components:
 * Begin by gathering all the required components for the project.
 * Follow the circuit diagram or specified wiring instructions.
@@ -138,8 +141,10 @@ By following these wiring instructions, you will establish the necessary electri
 ## Code and Prerequisites for Running the code
 
 To run the code for this project, you will need the following prerequisites:
+
 #### 1. MicroPython Firmware:
 Ensure that you have flashed the MicroPython firmware onto your Raspberry Pi Pico W, as described in the ["Preparation"](#Preparation) section of this tutorial.
+
 #### 2. Required Libraries: 
 Install the necessary libraries to your Raspberry Pi Pico W by following the steps provided in the ["Installing Libraries using Thonny Editor"](####4.-Installing-Libraries-using-Thonny-Editor:) section of this tutorial.
   * The following two libraries needs to be installed by follow the above mentioned section;
@@ -248,7 +253,7 @@ main loop of main.py:
                 print(formatted_data)
                 print()  # Add an empty line after printing the sensor data
 
-                utime.sleep(1) #Handles the frequency in which the data sent
+                utime.sleep(1) # Handles the frequency in which the data is sent
 
         except KeyboardInterrupt:
             pass
@@ -276,15 +281,18 @@ main loop of main.py:
 
 ## Data Transmission and/ Connectivity
 As briefly mentioned in the [description](#Description), this project utilizes a Raspberry Pi IoT server for data transmission. The server is set up using MQTT, Node-RED, InfluxDB, and Grafana. If you want to learn how to set up your own Raspberry Pi IoT server with these services, you can follow this link: https://learnembeddedsystems.co.uk/easy-raspberry-pi-iot-server. The provided guide includes a comprehensive video tutorial that offers step-by-step instructions to help you set up the server and establish data connectivity.
+
 A brief description about the actual data transmission intervals, protocol and choices made is:
+
 #### 1. Frequency of Data Transmission
-    
 The data is sent every 1 second. This is controlled by the *utime.sleep(1)* function call in the main loop of the code. This can be adapted to your own prefenrence and need.
+
 #### 2. Choice of Wireless Protocol
-    
 This project uses the WiFi protocol for wireless communication. The Raspberry Pi Pico W connects to a WiFi network to transmit the data.
+
 #### 3. Transport Protocol used
 The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmission in this project. The code utilizes the *umqtt.simple* library to connect to an MQTT broker and publish sensor data.
+
 #### 4. Design Choices Regarding Data Transmission and Wireless Protocols
 * Design choice driver:
     * The choice of using WiFi was driven by the fact that the system used indoor and is incorporated in an existing egg incubator. 
@@ -300,9 +308,11 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 * Conclusion:
     * Overall, the choice of WiFi and MQTT strikes a balance between ease of implementation, data efficiency, and potential security considerations.
     * However, depending on the specific project requirements, other wireless protocols like LoRa or transport protocols like webhooks may be more suitable.
+    
 #### 5. Data Management
 * To simplify the management of data and containerized applications, this project utilizes Docker containers and the Portainer container management tool. 
 * Portainer enables easy management of Docker containers, including the InfluxDB container used for data storage. 
+* The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](####1._Frequency_of_Data_Transmission). - This can be adjusted according to the specific requirements of the project.
 
 ## Data Presentation
 #### Grafana dashboard preview
@@ -319,25 +329,21 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 In this project, I have chosen to integrate Grafana with InfluxDB to address the visualization aspect. This integration allows for the creation of visually compelling representations of sensor data. Here's how Grafana fulfills the visualization requirements of this project:
 
 ##### 1. Interactive Dashboards:
-
 * Grafana enables the design of customizable dashboards that showcase real-time and historical data from the InfluxDB database.
 * Panels and widgets can be arranged on the dashboard to visualize different aspects of the data, such as temperature, humidity, and water level readings.
 * Various visualization types, including graphs, gauges, and tables, can be applied to the panels, providing flexibility in presenting the data. 
 * For this project, gauges were chosen as the visualization type.
 
 ##### 2. Real-time Monitoring:
-
 * With Grafana, it is possible to monitor the latest sensor readings in real time as they are updated in the InfluxDB database.
 * Auto-refresh intervals can be set on the dashboards to ensure the display of the most recent data, facilitating continuous monitoring of changes and prompt responses to critical events.
 
 ##### 3. Alerts and Notifications:
-
 * Grafana offers the capability to set up alerts based on specific conditions or thresholds in the data.
 * Rules can be defined to trigger notifications, such as emails, SMS messages, or other types of notifications, when certain criteria are met.
 * While no alerts have been implemented in this project, the option to set them up is available for proactive monitoring and timely actions when necessary.
 
 ##### 4. Customization and Sharing:
-
 * Grafana provides extensive customization options, allowing for personalized appearances of the dashboards and visualizations.
 * Colors, fonts, and layouts can be customized to suit individual preferences or meet specific branding requirements.
 * Additionally, Grafana facilitates easy sharing and collaboration, enabling the sharing of dashboards with others or embedding them in other applications or websites.
@@ -345,3 +351,26 @@ In this project, I have chosen to integrate Grafana with InfluxDB to address the
 By integrating Grafana with InfluxDB, the project achieves powerful data visualization capabilities, enabling the exploration of sensor data in an intuitive and customizable manner. This enhances the understanding of the data, facilitates informed decision-making, and supports effective communication and sharing of insights.
 
 ## Final Project Results
+Based on the relationship between the amount of water, temperature, and humidity discussed earlier, it is important to consider the accuracy of the DHT11 sensor in the context of temperature-sensitive environments.
+
+The DHT11 sensor has a temperature accuracy of approximately 2 degrees. While it can provide useful temperature measurements in many applications, it may not be the best choice for environments where temperature accuracy is critical. In such cases, where precise temperature control or monitoring is required, it is recommended to use sensors with higher accuracy specifications.
+
+For applications like egg incubation, where maintaining specific temperature ranges is crucial for successful hatching, using sensors with higher accuracy, such as thermocouples or platinum resistance thermometers (RTDs), may be more appropriate. These sensors offer greater precision and reliability in temperature measurement, ensuring more accurate control and monitoring of the incubation process.
+
+Therefore, when considering the choice of temperature sensors for temperature-sensitive environments, it is important to carefully evaluate the accuracy requirements of the specific application and select sensors accordingly.
+
+#### Media
+* Images
+    * Dry-run
+    ![](https://hackmd.io/_uploads/ry1c-TF_3.png)
+    ![](https://hackmd.io/_uploads/rkvJM6Kd3.png)
+
+    * Integrated to egg incubator
+    ![](https://hackmd.io/_uploads/BJwE4pFdn.png)
+    ![](https://hackmd.io/_uploads/BkkJv6Ydh.png)
+    ![](https://hackmd.io/_uploads/Sy4jh6Yu3.png)
+    
+* Video
+    * Water level normal: https://youtu.be/TSoYaD--FXg
+    * Water level low: https://youtu.be/-Sz1NxKUpZc
+    * Water level high: https://youtu.be/JwAzvJ2NEH0

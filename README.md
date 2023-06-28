@@ -222,7 +222,10 @@ By following these steps and ensuring that you have the necessary firmware, libr
         wlan = None 
 
 main loop of main.py:
-    
+
+    # Change these values based on your water sensor calibration values
+        lowerThreshold = 15000
+        upperThreshold = 25000
     #Main loop
     
        def mainloop():

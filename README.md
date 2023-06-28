@@ -1,7 +1,7 @@
 By Bongani Ndlovu, (bn222if)
 # Table of Contents
 [TOC]
-## Description:
+## Description
 
 In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using Raspberry Pi Pico W, a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
 The system utilizes Docker to log and share sensor data on a Raspberry Pi, with the following components:
@@ -12,7 +12,7 @@ The system utilizes Docker to log and share sensor data on a Raspberry Pi, with 
 
 Additionally, the system incorporates an OLED display, RGB LED, and Buzzer for local visualization and alert notifications.
 
-#### Time Allocation:
+#### Time Allocation
 
 The assembly and coding process for this tutorial can generally be completed within a reasonable timeframe of approximately 1-2 hours. However, it's important to consider personal preferences in terms of data visualization choices and the time needed to become familiar with the components and tools used in the project.
 
@@ -28,7 +28,7 @@ Here's a breakdown of the time allocation for each step:
 
 Please note that these time estimates are approximate and can vary depending on individual experience, learning speed, and familiarity with the tools and concepts involved. It's always recommended to allocate some extra time for troubleshooting and debugging, as unforeseen challenges may arise during the process.
 
-## Objective:
+## Objective
 
 The objective of this project is to enhance an existing egg incubator by adding a monitoring system that allows remote climate monitoring. Even when away from the incubator, this system enables the user to monitor the climate conditions inside.
 In an egg incubator, the hatching process requires specific conditions such as proper egg rotation, correct temperature, and humidity levels. The water level plays a role in influencing humidity. However, as the rotation is handled by the incubator's motor, this monitoring system focuses only on monitoring temperature, humidity, and water level.
@@ -41,9 +41,9 @@ To ensure successful hatching, the temperature and humidity need to be maintaine
 
 By receiving real-time sensor data, the user can take prompt action when necessary. The ability to monitor the climate conditions remotely relieves the burden and limitation of only being able to monitor the incubator when physically present.
 
-## Material:
+## Material
 
-*The selection of materials can be tailored according to the user's preferences, and it is recommended to refer to the equipment datasheets for comprehensive specifications and details of the individual components.
+The selection of materials can be tailored according to the user's preferences, and it is recommended to refer to the equipment datasheets for comprehensive specifications and details of the individual components.
 
 | Preview | Item | Description |Approximate price        |
 | -------- | -------- | -------- |--------        |
@@ -73,7 +73,7 @@ By receiving real-time sensor data, the user can take prompt action when necessa
 * Launch the Thonny editor, which you installed in the previous step.
 * In the bottom right-hand corner of the Thonny editor, you will see some text indicating the currently selected Python version.
 * If it does not display "MicroPython (Raspberry Pi Pico)" and COM port, click on the text and select "MicroPython (Raspberry Pi Pico)" from the available options. ![Image 1](https://hackmd.io/_uploads/r1n4LOuu2.png)
-#### 4. Installing Libraries using Thonny Editor
+#### 4. Installing Libraries using Thonny Editor:
    * Launch the Thonny editor, which you installed in the previous step.
    * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
     * Navigate to the Thonny Tools Menu (#*1.*) > Manage packages...(#*2.*)
@@ -90,36 +90,36 @@ By receiving real-time sensor data, the user can take prompt action when necessa
 These steps will prepare your system and Raspberry Pi Pico W for the subsequent stages of the tutorial.
 
 ## Hardware connection
-1. #### Component Wiring Instructions for Raspberry Pi Pico W:
-    1.1. Water Level Sensor:
-    * Connect the VCC pin of the water level sensor to a 3.3V power source on the Raspberry Pi Pico W. 
-     * Connect the GND pin of the water level sensor to a ground (GND) pin on the Raspberry Pi Pico W.
-     * Connect the OUT pin of the water level sensor to ADC(2) pin (Pin 28) on the Raspberry Pi Pico W.
+#### 1. Component Wiring Instructions for Raspberry Pi Pico W:
+1.1. Water Level Sensor:
+* Connect the VCC pin of the water level sensor to a 3.3V power source on the Raspberry Pi Pico W. 
+* Connect the GND pin of the water level sensor to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the OUT pin of the water level sensor to ADC(2) pin (Pin 28) on the Raspberry Pi Pico W.
     
-    1.2. DHT11 Sensor:
-    * Connect the VCC pin of the DHT11 sensor to a 3.3V power source on the Raspberry Pi Pico W.
-    * Connect the GND pin of the DHT11 sensor to a ground (GND) pin on the Raspberry Pi Pico W.
-    * Connect the DATA pin of the DHT11 sensor to GP22 pin (Pin 22) on the Raspberry Pi Pico W.
+1.2. DHT11 Sensor:
+* Connect the VCC pin of the DHT11 sensor to a 3.3V power source on the Raspberry Pi Pico W.
+* Connect the GND pin of the DHT11 sensor to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the DATA pin of the DHT11 sensor to GP22 pin (Pin 22) on the Raspberry Pi Pico W.
     
-    1.3. RGB LED:
-    * Connect the minus pin of the RGB module to a ground (GND) pin on the Raspberry Pi Pico W.
-    * Connect the blue_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 2)
-    * Connect the red_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 3)
-    * Connect the green_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 4)
-    * Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
+1.3. RGB LED:
+* Connect the minus pin of the RGB module to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the blue_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 2)
+* Connect the red_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 3)
+* Connect the green_led pin of the RGB LED module to a GPIO pin on the Raspberry Pi Pico W. (Pin 4)
+* Make sure to connect each pin of the RGB LED module to the respective GPIO pins on the Raspberry Pi Pico W as indicated above. This will enable control of the individual colors (blue, red, and green) of the RGB LED module through the Raspberry Pi Pico W.
 
-    1.4. Buzzer:
-    * Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
-    * Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
-    * Connect the VCC pin of the Buzzer module to a 3.3V power source on the Raspberry Pi Pico W.
+1.4. Buzzer:
+* Connect the buzzer pin of the Buzzer module to a GPIO pin on the Raspberry Pi Pico W. (Pin 5)
+* Connect the minus pin of the Buzzer module to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the VCC pin of the Buzzer module to a 3.3V power source on the Raspberry Pi Pico W.
 
-    1.5. OLED Display (I2C Interface):
-    * Connect the VCC pin of the OLED display to a 3.3V power source on the Raspberry Pi Pico W.
-    * Connect the GND pin of the OLED display to a ground (GND) pin on the Raspberry Pi Pico W.
-    * Connect the SDA pin of the OLED display to the SDA pin (Pin 26) on the Raspberry Pi Pico W.
-    * Connect the SCL pin of the OLED display to the SCL pin (Pin 27) on the Raspberry Pi Pico W.
+1.5. OLED Display (I2C Interface):
+* Connect the VCC pin of the OLED display to a 3.3V power source on the Raspberry Pi Pico W.
+* Connect the GND pin of the OLED display to a ground (GND) pin on the Raspberry Pi Pico W.
+* Connect the SDA pin of the OLED display to the SDA pin (Pin 26) on the Raspberry Pi Pico W.
+* Connect the SCL pin of the OLED display to the SCL pin (Pin 27) on the Raspberry Pi Pico W.
 
-    By following these wiring instructions, you will establish the necessary electrical connections between the components and the Raspberry Pi Pico W, allowing them to communicate and interact effectively.
+By following these wiring instructions, you will establish the necessary electrical connections between the components and the Raspberry Pi Pico W, allowing them to communicate and interact effectively.
 
 #### 2. Raspberry Pi Pico W Pinout diagram
 ![](https://hackmd.io/_uploads/B1nDicD_2.png)
@@ -141,8 +141,8 @@ To run the code for this project, you will need the following prerequisites:
 #### 1. MicroPython Firmware:
 Ensure that you have flashed the MicroPython firmware onto your Raspberry Pi Pico W, as described in the ["Preparation"](#Preparation) section of this tutorial.
 #### 2. Required Libraries: 
-Install the necessary libraries to your Raspberry Pi Pico W by following the steps provided in the ["Installing Libraries using Thonny Editor"](####4.-Installing-Libraries-using-Thonny-Editor) section of this tutorial.
-  * These two libraries needs to be installed by follow the above mentioned section;
+Install the necessary libraries to your Raspberry Pi Pico W by following the steps provided in the ["Installing Libraries using Thonny Editor"](####4.-Installing-Libraries-using-Thonny-Editor:) section of this tutorial.
+  * The following two libraries needs to be installed by follow the above mentioned section;
     1. umqtt.simple: This library provides a simple MQTT client implementation for MicroPython.
     2. ssd1306: This library allows you to communicate with SSD1306-based OLED displays.
 * In addition to the above libraries (i.e. *umqtt.simple* and *ssd1306*), the following libraries are part of the MicroPython standard library and should already be available on your Raspberry Pi Pico W. You can directly import them into your project:
@@ -161,10 +161,10 @@ Install the necessary libraries to your Raspberry Pi Pico W by following the ste
 #### 4. Uploading the Code: 
    To upload the code to your Raspberry Pi Pico W, follow the steps below:
    * Connect your Raspberry Pi Pico W to your computer using a Micro USB cable.
-    * Launch the Thonny editor, which you installed during the preparation process.
-    * Make sure "MicroPython (Raspberry Pi Pico)" is selected as the Python version and the correct COM port is selected in the bottom right-hand corner of the Thonny editor.
-    * Open the main code file (e.g., main.py) from the extracted code folder in Thonny.
-    * Click the "Run" button or press F5 to upload and run the code on your Raspberry Pi Pico W.
+* Launch the Thonny editor, which you installed during the preparation process.
+* Make sure "MicroPython (Raspberry Pi Pico)" is selected as the Python version and the correct COM port is selected in the bottom right-hand corner of the Thonny editor.
+* Open the main code file (e.g., main.py) from the extracted code folder in Thonny.
+* Click the "Run" button or press F5 to upload and run the code on your Raspberry Pi Pico W.
 
 By following these steps and ensuring that you have the necessary firmware, libraries, and code, you will be able to successfully run the project code on your Raspberry Pi Pico W.
 
@@ -189,7 +189,6 @@ By following these steps and ensuring that you have the necessary firmware, libr
 
     from time import sleep
 
-    '''
     def connect():
 
         wlan = network.WLAN(network.STA_IF)         # Put modem on Station mode
@@ -216,9 +215,8 @@ By following these steps and ensuring that you have the necessary firmware, libr
         wlan = network.WLAN(network.STA_IF)         # Put modem on Station mode
         wlan.disconnect()
         wlan = None 
-    '''
 
-main loop for main.py:
+main loop of main.py:
     
     #Main loop
     
@@ -250,7 +248,7 @@ main loop for main.py:
                 print(formatted_data)
                 print()  # Add an empty line after printing the sensor data
 
-                utime.sleep(1)
+                utime.sleep(1) #Handles the frequency in which the data sent
 
         except KeyboardInterrupt:
             pass
@@ -276,8 +274,36 @@ main loop for main.py:
             buzzer.value(0) 
     
 
-## Data transmission/ connectivity
-
-## Data presentation
+## Data Transmission and/ Connectivity
+As briefly mentioned in the [description](#Description), this project utilizes a Raspberry Pi IoT server for data transmission. The server is set up using MQTT, Node-RED, InfluxDB, and Grafana. If you want to learn how to set up your own Raspberry Pi IoT server with these services, you can follow this link: https://learnembeddedsystems.co.uk/easy-raspberry-pi-iot-server. The provided guide includes a comprehensive video tutorial that offers step-by-step instructions to help you set up the server and establish data connectivity.
+A brief description about the actual data transmission intervals, protocol and choices made is:
+#### 1. Frequency of Data Transmission
     
-## Final project results
+The data is sent every 1 second. This is controlled by the *utime.sleep(1)* function call in the main loop of the code. This can be adapted to your own prefenrence and need.
+#### 2. Choice of Wireless Protocol
+    
+This project uses the WiFi protocol for wireless communication. The Raspberry Pi Pico W connects to a WiFi network to transmit the data.
+#### 3. Transport Protocol used
+The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmission in this project. The code utilizes the *umqtt.simple* library to connect to an MQTT broker and publish sensor data.
+#### 4. Design Choices Regarding Data Transmission and Wireless Protocols
+* Design choice driver:
+    * The choice of using WiFi was driven by the fact that the system used indoor and is incorporated in an existing egg incubator. 
+    * This implied that power source was out of the question and the Pico W has Wifi capability.
+* Power consumption:
+    * It is known fact that WiFi communication can consume more power compared to other wireless protocols like LoRa. However, the impact on battery life can be managed by optimizing the code and minimizing the time the device spends actively transmitting or receiving data. 
+    * For example, in the provided code, the data is sent every 1 second, allowing the device to go into low-power mode (*utime.sleep(1)*) between data transmissions.
+* Security:
+    * Using WiFi and MQTT introduces some security considerations. 
+    * It is therefore crucial to secure the WiFi network with a strong password and an encryption of some kind. 
+    * MQTT can be secured by enabling authentication and encryption between the device and the MQTT broker. 
+    * This ensures that only authorized devices can connect to the MQTT broker and that the data transmitted is encrypted, protecting it from unauthorized access.
+* Conclusion:
+    * Overall, the choice of WiFi and MQTT strikes a balance between ease of implementation, data efficiency, and potential security considerations.
+    * However, depending on the specific project requirements, other wireless protocols like LoRa or transport protocols like webhooks may be more suitable.
+#### 5. Data Management
+* To simplify the management of data and containerized applications, this project utilizes Docker containers and the Portainer container management tool. 
+* Portainer enables easy management of Docker containers, including the InfluxDB container used for data storage. 
+
+## Data Presentation
+    
+## Final Project Results

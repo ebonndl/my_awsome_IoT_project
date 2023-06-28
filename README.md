@@ -13,33 +13,52 @@ The system utilizes Docker to log and share sensor data on a Raspberry Pi, with 
 Additionally, the system incorporates an OLED display, RGB LED, and Buzzer for local visualization and alert notifications.
 
 #### Time Allocation
-
 The assembly and coding process for this tutorial can generally be completed within a reasonable timeframe of approximately 1-2 hours. However, it's important to consider personal preferences in terms of data visualization choices and the time needed to become familiar with the components and tools used in the project.
 
 Here's a breakdown of the time allocation for each step:
 
 ##### 1. Preparing Raspberry Pi Pico W and connecting the components:
 * This step typically takes around 30 minutes to 1 hour, depending on your familiarity with the hardware and breadboard connections.
+
 ##### 2. Writing the code:
 * The provided code is ready to use, but understanding it and making any necessary modifications or customizations may require around 1-2 hours for an average beginner.
+
 ##### 3. Setting up the Raspberry Pi to host the required services:
 * This step involves installing and configuring Docker, Portainer, Mosquitto MQTT broker, Node-RED, InfluxDB and Grafana on the Raspberry Pi.
 * On average, an additional 1-2 hours for an average beginner will be required to complete this setup. The actual time required may vary based on your familiarity with the tools and the complexity of the setup.
 
 Please note that these time estimates are approximate and can vary depending on individual experience, learning speed, and familiarity with the tools and concepts involved. It's always recommended to allocate some extra time for troubleshooting and debugging, as unforeseen challenges may arise during the process.
 
-## Objective
+## Goal and Objective
 
-The objective of this project is to enhance an existing egg incubator by adding a monitoring system that allows remote climate monitoring. Even when away from the incubator, this system enables the user to monitor the climate conditions inside.
-In an egg incubator, the hatching process requires specific conditions such as proper egg rotation, correct temperature, and humidity levels. The water level plays a role in influencing humidity. However, as the rotation is handled by the incubator's motor, this monitoring system focuses only on monitoring temperature, humidity, and water level.
-To ensure successful hatching, the temperature and humidity need to be maintained within certain tolerance levels during different periods of the incubation process:
+The goal of this tutorial is to guide you through the process of enhancing an existing egg incubator by implementing a remote climate monitoring system. With this system, you will be able to monitor the climate conditions inside the incubator remotely, even when you are away. The focus of the monitoring system will be on temperature, humidity, and water level, as these factors play a crucial role in the hatching process.
+
+#### Background
+In an egg incubator, maintaining the right conditions is essential for successful hatching. Factors such as proper egg rotation, correct temperature, and humidity levels are critical. While the rotation is handled by the incubator's built-in motor, this tutorial will concentrate on monitoring temperature, humidity, and water level.
+
+To ensure optimal conditions during the incubation process, specific temperature and humidity tolerances need to be maintained within certain ranges.
 
 | Period                     | Temperature | Humidity |
 | -------------------------- | ----------- | -------- |
 | First 18 days              | 37.7 °C     | 57%      |
 | Last 3 days of the 21 days | 36.9 °C     | 70%      |
 
-By receiving real-time sensor data, the user can take prompt action when necessary. The ability to monitor the climate conditions remotely relieves the burden and limitation of only being able to monitor the incubator when physically present.
+##### Understanding the relationship between water, temperature, and humidity
+
+To successfully maintain the desired humidity levels, it is important to understand how water, temperature, and humidity influence each other in the incubator:
+
+1. Water Evaporation:
+
+    The presence of water in the incubator leads to evaporation, increasing the moisture content in the air and raising the humidity level.
+    Conversely, if there is less water available, evaporation decreases, resulting in lower humidity levels.
+
+2. Temperature:
+
+    Temperature plays a significant role in humidity levels as well.
+    Warmer temperatures accelerate evaporation, leading to higher humidity levels.
+    On the other hand, lower temperatures slow down evaporation, resulting in reduced humidity levels.
+
+By comprehending this relationship, you will be able to make informed decisions and adjustments to maintain the appropriate humidity levels in the incubator.
 
 ## Material
 
@@ -318,7 +337,7 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 * The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](https://hackmd.io/@bn222if/BJrYZALu2#1-Frequency-of-Data-Transmission). - This can be adjusted according to the specific requirements of the project.
 
 ## Data Presentation
-#### Grafana dashboard preview
+#### 1. Grafana dashboard preview
 
 | State                    | Preview              |
 | --------                 | --------             |
@@ -328,25 +347,25 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 |Water level - Too High, Both Temperature and Humidity - Low    |![](https://hackmd.io/_uploads/Skv545Kdn.png)    |
 |Temperature - High, Both Humidity and Water level - Normal    |![](https://hackmd.io/_uploads/rkE1I5tO2.png)    |
 
-#### Choice of Database and Visualization Tool
+#### 2. Choice of Database and Visualization Tool
 In this project, I have chosen to integrate Grafana with InfluxDB to address the visualization aspect. This integration allows for the creation of visually compelling representations of sensor data. Here's how Grafana fulfills the visualization requirements of this project:
 
-##### 1. Interactive Dashboards:
+##### 2.1. Interactive Dashboards:
 * Grafana enables the design of customizable dashboards that showcase real-time and historical data from the InfluxDB database.
 * Panels and widgets can be arranged on the dashboard to visualize different aspects of the data, such as temperature, humidity, and water level readings.
 * Various visualization types, including graphs, gauges, and tables, can be applied to the panels, providing flexibility in presenting the data. 
 * For this project, gauges were chosen as the visualization type.
 
-##### 2. Real-time Monitoring:
+##### 2.2. Real-time Monitoring:
 * With Grafana, it is possible to monitor the latest sensor readings in real time as they are updated in the InfluxDB database.
 * Auto-refresh intervals can be set on the dashboards to ensure the display of the most recent data, facilitating continuous monitoring of changes and prompt responses to critical events.
 
-##### 3. Alerts and Notifications:
+##### 2.3. Alerts and Notifications:
 * Grafana offers the capability to set up alerts based on specific conditions or thresholds in the data.
 * Rules can be defined to trigger notifications, such as emails, SMS messages, or other types of notifications, when certain criteria are met.
 * While no alerts have been implemented in this project, the option to set them up is available for proactive monitoring and timely actions when necessary.
 
-##### 4. Customization and Sharing:
+##### 2.4. Customization and Sharing:
 * Grafana provides extensive customization options, allowing for personalized appearances of the dashboards and visualizations.
 * Colors, fonts, and layouts can be customized to suit individual preferences or meet specific branding requirements.
 * Additionally, Grafana facilitates easy sharing and collaboration, enabling the sharing of dashboards with others or embedding them in other applications or websites.

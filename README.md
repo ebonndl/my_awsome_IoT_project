@@ -3,7 +3,7 @@ By Bongani Ndlovu, (bn222if)
 [TOC]
 ## Description
 
-In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using [Raspberry Pi Pico W](https://hackmd.io/@bn222if/BJrYZALu2#2-Raspberry-Pi-Pico-W-Pinout-diagram), a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
+In this tutorial, you will learn how to build a temperature, humidity, and water level monitoring system using [Raspberry Pi Pico W](#2-Raspberry-Pi-Pico-W-Pinout-diagram), a DHT11 sensor will measure temperature and humidity, a water level sensor will be used to monitor the amount of water. 
 The system utilizes Docker to log and share sensor data on a Raspberry Pi, with the following components:
 * Mosquitto: Message broker for data communication.
 * InfluxDB: Database for storing sensor data.
@@ -334,7 +334,7 @@ The MQTT (Message Queuing Telemetry Transport) protocol is used for data transmi
 #### 5. Data Management
 * To simplify the management of data and containerized applications, this project utilizes Docker containers and the Portainer container management tool. 
 * Portainer enables easy management of Docker containers, including the InfluxDB container used for data storage. 
-* The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](https://hackmd.io/@bn222if/BJrYZALu2#1-Frequency-of-Data-Transmission). - This can be adjusted according to the specific requirements of the project.
+* The frequency of data saving is determined by the code implementation and in the provided code; data is saved in the InfluxDB database every [1 second](#1-Frequency-of-Data-Transmission). - This can be adjusted according to the specific requirements of the project.
 
 ## Data Presentation
 #### 1. Grafana dashboard preview
@@ -373,13 +373,15 @@ In this project, I have chosen to integrate Grafana with InfluxDB to address the
 By integrating Grafana with InfluxDB, the project achieves powerful data visualization capabilities, enabling the exploration of sensor data in an intuitive and customizable manner. This enhances the understanding of the data, facilitates informed decision-making, and supports effective communication and sharing of insights.
 
 ## Final Project Results
-Based on the relationship between the amount of water, temperature, and humidity discussed earlier, it is important to consider the accuracy of the DHT11 sensor in the context of temperature-sensitive environments.
+In the context of sensor choice, the accuracy of the sensor plays a crucial role in ensuring reliable and precise monitoring of temperature and humidity in the egg incubator. In this project, the DHT11 sensor was initially considered due to its affordability and availability. However, upon further analysis and comparison with the BME680 sensor, it was found that the BME680 offers significantly higher accuracy for temperature and humidity measurements.
 
-The DHT11 sensor has a temperature accuracy of approximately 2 degrees. While it can provide useful temperature measurements in many applications, it may not be the best choice for environments where temperature accuracy is critical. In such cases, where precise temperature control or monitoring is required, it is recommended to use sensors with higher accuracy specifications.
+The BME680 sensor has a temperature accuracy of approximately ±0.5°C, whereas the DHT11 sensor has an accuracy of about ±2°C. Similarly, the BME680 provides humidity accuracy of around ±3% RH, while the DHT11 has an accuracy of about ±5% RH. These comparisons clearly demonstrate that the BME680 sensor offers superior accuracy in measuring temperature and humidity compared to the DHT11 sensor.
 
-For applications like egg incubation, where maintaining specific temperature ranges is crucial for successful hatching, using sensors with higher accuracy, such as thermocouples or platinum resistance thermometers (RTDs), may be more appropriate. These sensors offer greater precision and reliability in temperature measurement, ensuring more accurate control and monitoring of the incubation process.
+Considering the critical nature of maintaining precise climate conditions during the egg incubation process, the choice of a highly accurate sensor becomes paramount. The higher accuracy provided by the BME680 sensor ensures more reliable monitoring of temperature and humidity levels, increasing the chances of successful incubation and hatching.
 
-Therefore, when considering the choice of temperature sensors for temperature-sensitive environments, it is important to carefully evaluate the accuracy requirements of the specific application and select sensors accordingly.
+Therefore, it is recommended to incorporate a BME680 sensor in this project to achieve more accurate and precise monitoring of the incubator's climate conditions. This choice will align with the objective of maintaining optimal temperature and humidity levels for successful egg incubation.
+
+It's important to note that while the BME680 sensor offers higher accuracy, it is also crucial to calibrate and validate the sensor's readings periodically to ensure ongoing accuracy and reliability in the incubation process.
 
 #### Media
 * Images

@@ -98,9 +98,7 @@ The selection of materials can be tailored according to the user's preferences, 
    * Ensure that "MicroPython (Raspberry Pi Pico)" is selected at the bottom right-hand corner of the Thonny editor. 
     * Navigate to the Thonny Tools Menu (#*1.*) > Manage packages...(#*2.*)
      ![Image 2](https://hackmd.io/_uploads/HyR7KO_u3.png)
-   * In the popup menu, type the name of the library you want to install into the search field (#*3.*) and Click Search on PyPI (#*4.*).
-    
-   ![Image 3](https://hackmd.io/_uploads/rkv1nO_d3.png)
+   * In the popup menu, type the name of the library you want to install into the search field (#*3.*) and Click Search on PyPI (#*4.*). ![Image 3](https://hackmd.io/_uploads/rkv1nO_d3.png)
    * Select the appropriate library from the search results.
    * Click the Install button (#*5.*) at the bottom of the menu to begin the installation process.
    * Wait for the installation to complete. You will see a progress bar indicating the installation progress.
